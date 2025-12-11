@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>LK_Table</title>
+</head>
+<body>
+
+  
+
+<div class="prime-table" id="table-root">
+  <div class="container">
+    <!--General hat -->
+    <div class="prime-table__header">
+      <div class="prime-table__back">
+        <span class="prime-table__back-btn">Бонусы</span>
+        <img class="prime-table__back-prompt" data-open-js src="/img/icon/icon_prompt.svg" alt="icon">
+      </div>
+      <div class="prime-table__headline" id="prime-table-headline">
+        <!-- Headline content is rendered dynamically via JavaScript -->
+      </div>
+    </div>
+    <!-- Progress bar block: Single -->
+    <div class="prime-table__levels-wrapper">
+        <!-- ---------mobile slider--Nav-bar -->
+        <div class="prime-table__mobile-slider" data-slider-mob-js>
+          <!-- BEGIN Mobile-Header -->
+          <div class="prime-table__levels">
+            <div class="prime-table__levels-header" id="prime-levels-header-mobile">
+              <!-- Content rendered via JS -->
+            </div>
+            <i class="prime-table__levels-errors">
+              <span>Вы превысили ежемесячный лимит. Бонусы снова начнут начисляться с 1 числа месяца.</span>
+            </i>
+          </div>
+          <!-- END Mobile-Header -->
+          <div class="slide-mobile__render" id="slide-mobile-render">
+            <!-- Content rendered via JS -->
+          </div>
+        </div>
+        <!-- ---------mobile slider end -->
+
+        <!-- BEGIN desktop-ProgressBar -->
+        <div class="prime-table__desktop" id="prime-table-desktop">
+          <!-- Main container for desktop version; content is rendered dynamically via JavaScript -->
+          <div class="prime-table__levels prime-table__levels--hidden">
+              <div class="prime-table__levels-header" id="prime-levels-header-desktop">
+                <!-- Header for desktop levels; content is rendered dynamically via JavaScript -->
+              </div>
+              <i class="prime-table__levels-errors">
+                <span>Вы превысили ежемесячный лимит. Бонусы снова начнут начисляться с 1 числа месяца.</span>
+              </i>
+          </div>
+          <div class="prime-table__levels-desktop">
+            <div class="prime-table__levels-progress-bar" id="prime-levels-progress">
+              <!-- This block is populated dynamically via JavaScript -->
+            </div>
+            <div class="prime-table__levels-details" id="prime-levels-details">
+              <!-- Content is rendered via JavaScript -->
+            </div>
+          </div>
+        </div>
+        <!-- END desktop-ProgressBar -->
+    </div>
+
+    <!-- История операций: Страница бонусы ----Это уже будет другой метод... -->
+    <div class="prime-table__transaction" id="prime-table-transaction">
+      <!-- История операций: шапка -->
+    </div>
+    <!-- История операций вернуться на старниу бонусы: Страница Prime -->
+    <div class="prime-table__button-history" id="prime-table-button-history">
+      <!-- render_js кнопка исторя операций -->
+    </div>
+    <!-- Уровни привилегии: Страница Prime -->
+    <div class="prime-table__privileges" id="prime-table-privileges">
+      <strong class="prime-table__privileges-title">Уровни привилегии:</strong>
+      <!-- Уровни привилегии - Выбираем активные: Страница Prime -->
+    </div>
+          <!-- Начало -Попап Prime -->
+      <div class="prime-popup" id="prime-popup-init">
+        <div class="prime-popup__overlay"></div>
+        <div class="prime-popup__content">
+            <!-- Начало SECTION -->
+            <ul class="prime-popup__body">
+                <li class="prime-popup__close" data-popup-close-js>✕</li>
+                <li class="prime-popup__title">О программе Prime</li>
+                <li class="prime-popup__section">
+                    <p class="prime-popup__text">
+                    Программа лояльности <b>Prime</b> действует во всех магазинах <b>MARWIN</b>, <b>МЕЛОМАН</b>, а также в аптеке <b>Europharma</b>.
+                    </p>
+                    <br />
+                    <p class="prime-popup__text">
+                    Теперь это единая объединённая система лояльности — вы можете копить и тратить бонусы в любой из этих сетей, без ограничений.
+                    </p>
+                    <p class="prime-popup__text">
+                    Мы объединили программы, чтобы сделать ваши покупки ещё удобнее и выгоднее.
+                    </p>
+                    <p class="prime-popup__text">
+                    Prime включает 4 уровня: <b>Бронзовый</b>, <b>Серебряный</b>, <b>Золотой</b> и <b>Платиновый</b>. Каждый уровень имеет свой процент кешбэка, лимит накопления бонусов и дополнительные преимущества.
+                    </p>
+                </li>
+                <li class="prime-popup__section">
+                    <h3 class="prime-popup__subtitle">Бронзовый уровень</h3>
+                    <ul class="prime-popup__list">
+                        <li class="prime-popup__list-item">Кешбэк: 10%</li>
+                        <li class="prime-popup__list-item">Лимит накопления: 50 000 бонусов</li>
+                        <li class="prime-popup__list-item">Стартовый уровень программы.</li>
+                    </ul>
+                </li>
+                <li class="prime-popup__section">
+                    <h3 class="prime-popup__subtitle">Серебряный уровень</h3>
+                    <ul class="prime-popup__list">
+                        <li class="prime-popup__list-item">Кешбэк: 13%</li>
+                        <li class="prime-popup__list-item">Лимит накопления: 75 000 бонусов</li>
+                        <li class="prime-popup__list-item">Дополнительно: персональные акции и улучшенные предложения.</li>
+                    </ul>
+                </li>
+                <li class="prime-popup__section">
+                    <h3 class="prime-popup__subtitle">Золотой уровень</h3>
+                    <ul class="prime-popup__list">
+                    <li class="prime-popup__list-item">Кешбэк: 16%</li>
+                    <li class="prime-popup__list-item">Лимит накопления: 100 000 бонусов</li>
+                    <li class="prime-popup__list-item">Привилегии: приоритетное обслуживание и эксклюзивные предложения.</li>
+                    </ul>
+                </li>
+                <li class="prime-popup__section">
+                    <h3 class="prime-popup__subtitle">Платиновый уровень</h3>
+                    <ul class="prime-popup__list">
+                        <li class="prime-popup__list-item">Кешбэк: 20%</li>
+                        <li class="prime-popup__list-item">Лимит накопления: 150 000 бонусов</li>
+                        <li class="prime-popup__list-item">
+                            Максимальный набор преимуществ: персональный менеджер, индивидуальные предложения и повышенный кешбэк.
+                        </li>
+                    </ul>
+                </li>
+                <li class="prime-popup__section">
+                    <h3 class="prime-popup__subtitle">Как работают уровни?</h3>
+                    <p class="prime-popup__text">
+                        Переход на следующий уровень происходит автоматически — по мере накопления суммы покупок за год. Чем выше ваш уровень, тем больше кешбэк, выше лимит бонусов и шире набор привилегий.
+                    </p>
+                    <p class="prime-popup__text">
+                        И самое главное — все бонусы и уровни действуют сразу во всех трёх сетях: <b>MARWIN</b>, <b>МЕЛОМАН</b> и <b>Europharma</b>. Покупайте где удобно, копите бонусы быстрее и тратьте спокойно там, где нужно!
+                    </p>
+                </li>
+                <button type="button" class="prime-popup__button" data-popup-close-js>Понятно</button>
+            </ul>
+        </div> <!-- закрывающий prime-popup__content -->
+      </div> <!-- закрывающий prime-popup -->
+  </div>
+</div>
+
+    <script src="js/classes/PrimeTable.js"></script>
+    <!-- <script src="script.js"></script> -->
+
+ 
+
+</body>
+</html>

@@ -1,0 +1,5117 @@
+const data = {
+      title_id: 0,
+      title_name: "Бронзовый",
+      balance: 3000,
+      cashback: 0.1,
+      bonus_value: 10000,
+      bonus_cap: 50000,
+      check_sum: 150000,
+      loyalty_titles: [
+        { id: 0,  name: "Bronze",   name_ru: "Бронзовый",  cashback: 0.1,  threshold: 0 },
+        { id: 51, name: "Silver",   name_ru: "Серебряный", cashback: 0.13, threshold: 300000 },
+        { id: 52, name: "Gold",     name_ru: "Золотой",    cashback: 0.16, threshold: 1000000 },
+        { id: 53, name: "Platinum", name_ru: "Платиновый", cashback: 0.2,  threshold: 3000000 }
+      ]
+    }
+
+const data2 =[
+  {
+    "sale_id": "8937232854",
+    "date": "2010-09-20T17:10:48",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 3164,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1627419190",
+    "date": "2006-09-06T15:58:30",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3008,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1615412242",
+    "date": "2006-11-25T23:46:25",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 1661,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "7477322551",
+    "date": "2006-04-11T08:31:42",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 3035,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "1477998404",
+    "date": "2009-09-28T16:19:43",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1968,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3657628605",
+    "date": "2006-04-26T11:21:08",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -545,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "8006738944",
+    "date": "2025-12-13T03:59:55",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4590,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "6122750767",
+    "date": "2010-02-05T16:59:16",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 3470,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7297063903",
+    "date": "2014-04-13T13:19:43",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2870,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "2022677871",
+    "date": "2009-06-26T00:33:52",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3024,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "7235202943",
+    "date": "2014-12-17T15:08:29",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 3614,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2292111474",
+    "date": "2006-08-09T10:43:44",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2113,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2559178750",
+    "date": "2014-09-26T08:47:00",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3737,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5112716162",
+    "date": "2010-03-01T16:28:09",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4434,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2660607289",
+    "date": "2025-04-03T22:44:36",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 319,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7392072938",
+    "date": "2014-03-22T14:08:13",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 4464,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7478147341",
+    "date": "2010-06-16T18:45:31",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 2798,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4713422485",
+    "date": "2014-01-31T17:16:06",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 2115,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "7777393216",
+    "date": "2025-08-02T22:23:36",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4832,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2047295251",
+    "date": "2014-08-02T05:42:46",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 967,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7570016662",
+    "date": "2025-11-29T07:43:48",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 2256,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6605122191",
+    "date": "2009-09-22T23:11:45",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 4934,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3069942490",
+    "date": "2006-09-13T22:45:18",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4215,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2833562165",
+    "date": "2006-05-16T19:51:44",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 58,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1984009146",
+    "date": "2009-11-01T12:01:04",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4196,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6848610805",
+    "date": "2009-07-26T18:00:30",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 4673,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3784505266",
+    "date": "2010-01-18T07:45:34",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 2254,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "9875673041",
+    "date": "2025-10-16T20:04:13",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 2501,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "9237459003",
+    "date": "2025-10-22T07:33:48",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2651,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "1184545819",
+    "date": "2009-08-02T16:21:29",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 3915,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "5307514435",
+    "date": "2010-04-27T07:09:42",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3309,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9658872338",
+    "date": "2006-04-17T04:31:16",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1880,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1980348136",
+    "date": "2006-11-28T13:00:24",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 1335,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "5203569318",
+    "date": "2010-12-16T09:51:16",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4836,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "4381797516",
+    "date": "2025-10-25T12:06:56",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4554,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "7452062729",
+    "date": "2010-12-31T09:18:13",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 3805,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2849142459",
+    "date": "2014-01-11T13:02:50",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2020,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4644451928",
+    "date": "2006-07-17T08:29:01",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 773,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "6965587969",
+    "date": "2014-06-06T00:15:46",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3482,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8969218148",
+    "date": "2009-12-11T01:40:09",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3311,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1367107243",
+    "date": "2009-08-19T00:04:02",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 2014,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7050377915",
+    "date": "2010-05-14T20:25:47",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3785,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2674450641",
+    "date": "2009-12-07T16:04:57",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 2208,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "6378777641",
+    "date": "2006-11-11T00:57:16",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3086,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6771036170",
+    "date": "2006-06-12T18:28:00",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4487,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "5548001441",
+    "date": "2009-02-08T09:47:11",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3437,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8363898244",
+    "date": "2025-11-22T22:26:46",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 344,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9825636304",
+    "date": "2014-02-09T23:16:45",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 3634,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2763808017",
+    "date": "2010-04-15T07:15:01",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 729,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4971750207",
+    "date": "2014-10-28T07:36:11",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4455,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7959698465",
+    "date": "2006-05-13T18:36:17",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 2457,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "9835834706",
+    "date": "2009-09-18T19:29:49",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 4626,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8891439219",
+    "date": "2014-03-05T17:54:20",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1541,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "8643109347",
+    "date": "2014-04-29T07:08:08",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 4251,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "8627035150",
+    "date": "2025-12-16T19:55:03",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3585,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5417848004",
+    "date": "2025-08-31T21:18:19",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1374,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "2995667518",
+    "date": "2009-02-18T02:45:52",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -657,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3272786206",
+    "date": "2014-07-07T08:38:27",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4842,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1690252741",
+    "date": "2009-12-11T18:14:33",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 3725,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4334551592",
+    "date": "2009-10-06T19:41:09",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 188,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4145984193",
+    "date": "2025-08-16T10:27:39",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 3706,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "7680781926",
+    "date": "2025-07-15T13:15:49",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 4194,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "5535883845",
+    "date": "2025-10-27T19:59:24",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4110,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7987698351",
+    "date": "2006-04-26T10:44:00",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3307,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8226576787",
+    "date": "2010-02-10T19:23:14",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3329,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4069761957",
+    "date": "2006-12-19T15:45:48",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4761,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6355562537",
+    "date": "2025-07-03T05:29:42",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 2625,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4412294196",
+    "date": "2009-11-27T20:31:58",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4595,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "6699173348",
+    "date": "2006-05-28T00:01:33",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 3498,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "9845078913",
+    "date": "2025-09-21T09:25:36",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3569,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6148955699",
+    "date": "2006-12-02T00:45:13",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1030,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9032675474",
+    "date": "2006-09-09T22:14:19",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 2656,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4647435015",
+    "date": "2014-08-08T09:59:00",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3138,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "2202097177",
+    "date": "2010-04-17T18:14:13",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1102,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "7039269246",
+    "date": "2010-08-05T10:57:03",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -731,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "3199269262",
+    "date": "2006-09-21T09:05:48",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3739,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6039463550",
+    "date": "2025-07-03T11:46:54",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 1719,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "8372049517",
+    "date": "2006-07-27T04:12:29",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 4883,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4155128310",
+    "date": "2010-03-12T18:33:43",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -65,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3339731918",
+    "date": "2009-03-15T18:19:26",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3279,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5225564537",
+    "date": "2009-08-31T19:39:52",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -484,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1198336821",
+    "date": "2014-10-19T08:35:52",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1963,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6806370008",
+    "date": "2010-07-18T22:05:35",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 2670,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "2515150009",
+    "date": "2009-04-22T16:34:28",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 3644,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "9201211141",
+    "date": "2014-03-15T09:28:46",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 3081,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5999161227",
+    "date": "2010-08-08T12:16:17",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 4930,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8600670908",
+    "date": "2025-03-13T19:11:27",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -931,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1375806095",
+    "date": "2014-06-23T16:41:56",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 307,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6215778666",
+    "date": "2010-06-16T03:01:00",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2348,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8488864439",
+    "date": "2009-07-29T05:09:31",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 3194,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1432311590",
+    "date": "2006-09-02T16:43:00",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 4306,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9546542547",
+    "date": "2025-06-26T22:11:33",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 978,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2305970652",
+    "date": "2009-08-28T23:34:39",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1114,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9932601219",
+    "date": "2009-10-17T10:06:09",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1032,
+    "status": "Система"
+  },
+  {
+    "sale_id": "3082663098",
+    "date": "2006-04-02T22:49:59",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 2535,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "2426178461",
+    "date": "2010-07-25T22:59:38",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4854,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5924685286",
+    "date": "2010-10-01T05:48:11",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -634,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9512713397",
+    "date": "2009-05-09T00:08:08",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4338,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5815517442",
+    "date": "2010-06-17T20:17:06",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 1618,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2763451031",
+    "date": "2006-03-12T02:58:59",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 3529,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2344482869",
+    "date": "2014-03-31T15:23:02",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2803,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "4437981925",
+    "date": "2014-07-28T23:53:34",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2536,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1721088760",
+    "date": "2009-08-26T00:01:43",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1073,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "6198234785",
+    "date": "2025-07-05T13:46:05",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -281,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "7190927208",
+    "date": "2009-02-23T16:14:55",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 2978,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "8694426903",
+    "date": "2010-12-01T05:07:44",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4516,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4903188983",
+    "date": "2010-05-10T04:49:26",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 2058,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4932354839",
+    "date": "2025-06-07T02:33:12",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 4168,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "3274278019",
+    "date": "2014-11-17T17:14:25",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2274,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "5035048905",
+    "date": "2014-11-09T05:27:10",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 4024,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9314743481",
+    "date": "2014-11-20T19:06:34",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 3273,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "4424557566",
+    "date": "2014-06-25T22:28:14",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 1660,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "3853423271",
+    "date": "2006-04-05T00:22:23",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -815,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6374387723",
+    "date": "2009-11-09T15:15:00",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1896,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "3412041242",
+    "date": "2025-07-24T23:45:23",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 1613,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "2446380313",
+    "date": "2025-04-17T15:47:17",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2718,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "9272354306",
+    "date": "2025-09-15T01:57:57",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4875,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3011650763",
+    "date": "2009-03-13T03:05:19",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4646,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4655822839",
+    "date": "2010-05-20T06:59:07",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 3150,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6514745175",
+    "date": "2010-01-15T15:51:59",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4548,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "5068930280",
+    "date": "2014-09-15T19:59:00",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1208,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9157521432",
+    "date": "2014-06-05T11:56:09",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 635,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "3503495411",
+    "date": "2010-09-13T05:02:03",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 3971,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2148788219",
+    "date": "2009-09-08T13:06:13",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2728,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5797037229",
+    "date": "2006-01-09T09:46:04",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 3650,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6004885567",
+    "date": "2010-07-04T01:20:41",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 866,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "9336244645",
+    "date": "2025-05-07T09:35:23",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4798,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "3130324584",
+    "date": "2014-04-22T09:33:32",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -133,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3336923137",
+    "date": "2010-09-19T09:53:39",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4052,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "8987450053",
+    "date": "2009-09-22T10:20:34",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2766,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4448754362",
+    "date": "2006-10-09T20:45:30",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -798,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5189120369",
+    "date": "2006-02-12T09:32:17",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 4105,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "3533106696",
+    "date": "2009-04-25T23:59:38",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 3356,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6103292912",
+    "date": "2025-05-16T07:42:00",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 125,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4452126749",
+    "date": "2025-02-22T15:08:28",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4187,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2244241524",
+    "date": "2010-10-03T02:01:26",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -446,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2519550042",
+    "date": "2010-12-31T21:51:48",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1261,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7526717879",
+    "date": "2009-11-28T00:54:21",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 4018,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1963898151",
+    "date": "2009-09-04T03:05:25",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3456,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6212108413",
+    "date": "2006-12-29T08:14:26",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -754,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "5174808263",
+    "date": "2025-12-08T04:28:35",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 606,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4343420586",
+    "date": "2009-01-18T07:45:20",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 3233,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "6039008000",
+    "date": "2025-12-07T03:11:46",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4278,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4105493183",
+    "date": "2010-04-14T07:36:25",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4494,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8298358863",
+    "date": "2010-04-17T08:35:55",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1633,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4154156589",
+    "date": "2010-04-23T07:35:25",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 2564,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1314470219",
+    "date": "2010-04-14T19:37:09",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 1854,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5943619213",
+    "date": "2014-07-28T21:25:44",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 4919,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "3992051450",
+    "date": "2009-03-16T04:50:29",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 4104,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "6463703299",
+    "date": "2006-05-16T16:23:58",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -285,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4951917090",
+    "date": "2025-12-18T20:15:56",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2212,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "2253587653",
+    "date": "2009-12-19T21:08:30",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 571,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5221068960",
+    "date": "2014-08-31T03:42:43",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 1809,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "5575504177",
+    "date": "2006-06-12T12:40:41",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1201,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "7617863917",
+    "date": "2006-03-31T07:25:52",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2618,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3700325446",
+    "date": "2014-02-22T09:05:02",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1811,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4876829781",
+    "date": "2010-09-17T16:04:34",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 2005,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6829270980",
+    "date": "2009-11-22T18:15:06",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 2493,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "8340677658",
+    "date": "2006-07-21T05:46:57",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 3273,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8938168361",
+    "date": "2025-08-16T15:31:55",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 4503,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8944467276",
+    "date": "2014-09-17T20:37:55",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4774,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "2076935033",
+    "date": "2025-12-05T09:10:38",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 1370,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "6058146365",
+    "date": "2014-03-31T19:48:01",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 4342,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6594900331",
+    "date": "2010-05-31T02:14:23",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 2815,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5970112114",
+    "date": "2014-03-12T03:19:53",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -913,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4922340917",
+    "date": "2014-08-29T08:49:53",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 959,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8304468380",
+    "date": "2014-09-22T10:35:56",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 2264,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "8673880523",
+    "date": "2014-08-23T09:32:30",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 2038,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "1678715375",
+    "date": "2025-09-25T20:33:14",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -470,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8021323734",
+    "date": "2006-09-24T07:18:30",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 401,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3195988392",
+    "date": "2006-12-10T13:18:58",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1216,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "8589846121",
+    "date": "2010-05-09T15:40:25",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 774,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "6381422626",
+    "date": "2009-05-01T05:07:38",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 3654,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1918242193",
+    "date": "2010-02-17T08:54:45",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 2046,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5737145490",
+    "date": "2025-01-08T17:22:28",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1592,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "3561139455",
+    "date": "2009-12-11T17:08:20",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1569,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "3312110738",
+    "date": "2009-12-14T07:49:27",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2566,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4618061090",
+    "date": "2014-11-19T16:27:01",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2783,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2094440673",
+    "date": "2010-03-04T13:53:22",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1068,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8711072856",
+    "date": "2025-01-05T10:44:06",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 3523,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3005693938",
+    "date": "2009-05-01T08:56:31",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1055,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4538732019",
+    "date": "2014-11-24T12:36:07",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2815,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7519538320",
+    "date": "2010-08-27T18:49:51",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -14,
+    "status": "Система"
+  },
+  {
+    "sale_id": "5685845270",
+    "date": "2006-08-16T15:31:25",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1448,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2329346103",
+    "date": "2025-01-19T01:34:11",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 4875,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "8558530588",
+    "date": "2009-03-08T09:13:03",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1018,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "1201365478",
+    "date": "2025-10-15T02:48:24",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -309,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5164200267",
+    "date": "2014-05-26T21:21:00",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -450,
+    "status": "Система"
+  },
+  {
+    "sale_id": "2131484667",
+    "date": "2025-03-11T16:23:33",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1768,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9554433000",
+    "date": "2010-04-27T01:48:32",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2455,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5290237021",
+    "date": "2014-01-15T23:46:27",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 243,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2554635016",
+    "date": "2009-01-20T08:18:18",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 821,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5078855396",
+    "date": "2010-09-17T04:36:18",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -484,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "3525749252",
+    "date": "2025-09-15T20:41:48",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 48,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "7721217845",
+    "date": "2014-01-10T06:34:18",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 4013,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8618215060",
+    "date": "2009-12-03T10:20:22",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 3971,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "1240129838",
+    "date": "2025-07-02T15:08:29",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3084,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7413585606",
+    "date": "2006-05-14T14:09:04",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 2200,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "8667520774",
+    "date": "2010-12-04T21:56:14",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3788,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3829988556",
+    "date": "2010-10-17T10:36:56",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -897,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3565919340",
+    "date": "2014-01-30T08:50:22",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3758,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2400258202",
+    "date": "2006-09-14T16:08:12",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 190,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5018471907",
+    "date": "2010-03-27T15:22:58",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3214,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9655845532",
+    "date": "2014-06-28T11:02:52",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4286,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "1963964616",
+    "date": "2025-06-08T06:10:48",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3072,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1680575819",
+    "date": "2009-09-25T16:06:34",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 78,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "8287687444",
+    "date": "2006-06-27T14:56:38",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 1983,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "7313930726",
+    "date": "2014-03-23T09:45:38",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -876,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8877876319",
+    "date": "2006-02-14T07:25:45",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 3692,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2041849460",
+    "date": "2009-09-04T15:11:19",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -390,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "7969784195",
+    "date": "2006-08-23T07:25:26",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2146,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6790693656",
+    "date": "2006-06-02T06:09:13",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2698,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "5853512341",
+    "date": "2014-08-08T10:47:29",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 4311,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9946386944",
+    "date": "2009-02-22T03:39:52",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 3979,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9365773284",
+    "date": "2009-04-03T06:28:37",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2663,
+    "status": "Система"
+  },
+  {
+    "sale_id": "2646009610",
+    "date": "2010-10-06T02:38:21",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 4472,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8578108333",
+    "date": "2010-02-05T06:11:13",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 70,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "1775036609",
+    "date": "2006-10-30T17:18:31",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1943,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4086053631",
+    "date": "2025-01-23T16:45:45",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4754,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5082386589",
+    "date": "2010-07-16T10:25:13",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4727,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6782957869",
+    "date": "2009-05-29T10:32:41",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 2306,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8990676856",
+    "date": "2025-07-02T00:00:57",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2312,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "7868692836",
+    "date": "2009-06-06T01:49:23",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 1661,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9137778590",
+    "date": "2006-10-04T03:46:47",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1481,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3084187349",
+    "date": "2006-07-18T09:55:27",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -330,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6357290951",
+    "date": "2010-12-07T07:02:41",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1671,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1913160900",
+    "date": "2006-05-27T15:46:01",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -888,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5603198047",
+    "date": "2009-11-23T19:39:56",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4045,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9743488950",
+    "date": "2006-12-28T23:53:37",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 134,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9466630743",
+    "date": "2009-12-19T09:51:14",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2711,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "8543426695",
+    "date": "2009-12-18T09:50:36",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -92,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "6625475757",
+    "date": "2009-04-15T00:45:07",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 3467,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "1823722181",
+    "date": "2009-10-24T18:51:56",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 715,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9848753851",
+    "date": "2010-07-31T02:48:26",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -78,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "6373283540",
+    "date": "2009-01-16T15:17:23",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2142,
+    "status": "Система"
+  },
+  {
+    "sale_id": "2526365821",
+    "date": "2010-10-01T07:03:47",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4113,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "6312022378",
+    "date": "2014-08-20T10:40:33",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3429,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4655963285",
+    "date": "2006-08-17T09:20:34",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1855,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9312947587",
+    "date": "2010-07-27T04:06:48",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2435,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2515651762",
+    "date": "2006-06-21T11:39:01",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3888,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8975436071",
+    "date": "2009-05-21T05:04:02",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4478,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "3237593652",
+    "date": "2009-05-15T13:08:22",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 771,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5522646368",
+    "date": "2014-05-18T06:36:43",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 2638,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3686320708",
+    "date": "2010-02-11T09:59:43",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3599,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1099050665",
+    "date": "2025-12-27T15:03:52",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1864,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1812730317",
+    "date": "2025-07-08T15:34:03",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 2838,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4603886504",
+    "date": "2025-07-03T02:57:57",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 4514,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2281074800",
+    "date": "2009-01-05T15:39:30",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1006,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "1904414420",
+    "date": "2014-10-04T12:57:46",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3859,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5298077335",
+    "date": "2006-07-12T14:58:57",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1916,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "9906990848",
+    "date": "2014-02-23T23:28:21",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 3447,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7595804687",
+    "date": "2014-12-29T14:02:21",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1287,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4052281060",
+    "date": "2010-11-04T11:41:13",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4558,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2445688372",
+    "date": "2014-02-18T04:50:18",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4079,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4549734042",
+    "date": "2025-06-06T02:42:50",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4601,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "8762541841",
+    "date": "2006-11-09T11:20:55",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 471,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9361984955",
+    "date": "2014-02-26T23:07:17",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2705,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7930816628",
+    "date": "2009-01-31T12:03:30",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3394,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "7462336970",
+    "date": "2009-12-10T19:55:59",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 4742,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7023890805",
+    "date": "2025-05-01T16:37:16",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 973,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "5853203687",
+    "date": "2009-10-17T23:35:44",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -782,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "8283624454",
+    "date": "2014-04-25T02:18:25",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 4744,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8663269978",
+    "date": "2010-11-09T14:33:59",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1607,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7938688552",
+    "date": "2006-04-26T11:47:47",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 897,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9833621847",
+    "date": "2010-08-09T03:29:35",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 713,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9310042109",
+    "date": "2009-07-05T04:55:23",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2786,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1626245737",
+    "date": "2025-08-10T11:53:41",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 3971,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7570455904",
+    "date": "2009-08-04T11:47:53",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3481,
+    "status": "Система"
+  },
+  {
+    "sale_id": "2952370107",
+    "date": "2009-11-11T21:30:32",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1673,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7515457911",
+    "date": "2014-02-16T08:02:08",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3562,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1841980877",
+    "date": "2010-10-28T09:38:14",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 3180,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6044783728",
+    "date": "2006-12-19T02:05:19",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 3629,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6896056579",
+    "date": "2014-05-14T05:37:10",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3116,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6786522084",
+    "date": "2006-09-04T11:45:33",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 1553,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5354423815",
+    "date": "2025-08-26T02:00:02",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4329,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4238248226",
+    "date": "2009-06-22T06:46:14",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1965,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2879007819",
+    "date": "2014-01-26T05:15:18",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1403,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9431748226",
+    "date": "2025-07-27T09:31:31",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 478,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "9139582782",
+    "date": "2014-01-13T05:13:58",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2602,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9219607288",
+    "date": "2025-12-09T06:49:05",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 697,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9061968351",
+    "date": "2010-08-27T22:17:00",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1598,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6439814137",
+    "date": "2025-08-18T00:25:46",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 1017,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "3224230024",
+    "date": "2014-08-21T14:17:23",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3774,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3562199509",
+    "date": "2014-04-17T18:23:55",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 744,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5400541481",
+    "date": "2014-05-20T14:28:04",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -973,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "7815440308",
+    "date": "2009-03-30T02:29:32",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 4588,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5508231571",
+    "date": "2010-06-15T07:17:14",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2640,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9593440007",
+    "date": "2010-07-02T00:13:22",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -690,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7249594700",
+    "date": "2010-01-28T04:06:08",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 3836,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2196660127",
+    "date": "2025-04-20T21:51:49",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1795,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "3393384790",
+    "date": "2009-07-24T22:58:06",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 4639,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7615467770",
+    "date": "2025-04-11T20:22:37",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3828,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7971623339",
+    "date": "2009-08-18T22:25:02",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 415,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "3389615955",
+    "date": "2009-02-06T08:04:35",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 3596,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "6303108865",
+    "date": "2010-11-23T16:48:35",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2524,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5152111534",
+    "date": "2014-02-07T18:30:27",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4754,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6932126769",
+    "date": "2006-12-26T18:15:52",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2801,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1503578466",
+    "date": "2010-11-26T05:26:56",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2550,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5361477328",
+    "date": "2009-10-09T22:30:22",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4749,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "9594724330",
+    "date": "2009-01-14T22:07:47",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3657,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4327130014",
+    "date": "2009-05-02T13:11:23",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 3673,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1775514204",
+    "date": "2006-10-29T04:13:29",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4330,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5315354068",
+    "date": "2009-01-10T10:25:37",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 4708,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2049382055",
+    "date": "2006-01-08T00:46:40",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1946,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "7809561316",
+    "date": "2009-04-02T05:08:04",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2401,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6151834148",
+    "date": "2010-12-16T08:47:22",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 2198,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1252202098",
+    "date": "2009-01-04T16:23:00",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 4502,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1372224819",
+    "date": "2014-04-16T15:31:52",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3594,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7789256741",
+    "date": "2010-01-10T18:06:37",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4880,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "5227207287",
+    "date": "2010-02-10T09:27:16",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4429,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4769867126",
+    "date": "2010-01-02T00:16:52",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3652,
+    "status": "Система"
+  },
+  {
+    "sale_id": "2645717342",
+    "date": "2006-01-31T10:51:53",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 529,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6576261713",
+    "date": "2025-12-26T11:38:11",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 4030,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "1323347629",
+    "date": "2014-09-10T22:22:18",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1834,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "7212113646",
+    "date": "2025-05-08T10:42:24",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 1885,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8381962127",
+    "date": "2010-03-26T11:15:57",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1338,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "3574581058",
+    "date": "2014-07-06T19:45:57",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1703,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "1817133951",
+    "date": "2009-01-31T17:05:11",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 2406,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "9098831076",
+    "date": "2006-01-08T14:26:38",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 2378,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "2337574025",
+    "date": "2006-10-19T13:13:12",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 3604,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "5310592693",
+    "date": "2010-05-26T08:39:15",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 1214,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "4584869625",
+    "date": "2006-02-16T19:53:57",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 4765,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6499876272",
+    "date": "2025-08-24T21:53:17",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 374,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1129687424",
+    "date": "2009-05-11T07:54:46",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 662,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3035964504",
+    "date": "2009-08-10T23:54:18",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3586,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4770363764",
+    "date": "2009-08-29T22:38:00",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 88,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "1427861426",
+    "date": "2014-09-06T11:13:41",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4853,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9061947774",
+    "date": "2009-04-04T08:48:14",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4290,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "6935959248",
+    "date": "2006-07-04T21:26:26",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4145,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "1787585115",
+    "date": "2010-04-24T18:52:32",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4377,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2794820073",
+    "date": "2006-08-19T06:23:18",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -825,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "4388525036",
+    "date": "2025-12-29T03:00:27",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 1577,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1868007507",
+    "date": "2009-06-13T09:18:07",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1529,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "3695485373",
+    "date": "2009-10-24T14:46:47",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1848,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1986964176",
+    "date": "2010-08-22T21:30:56",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3316,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "1583355609",
+    "date": "2006-10-19T10:17:24",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -297,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "6908531602",
+    "date": "2009-10-02T19:27:22",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 679,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6367391821",
+    "date": "2010-11-22T14:30:46",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 2498,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8306874853",
+    "date": "2010-07-20T01:48:13",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 3065,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6562025502",
+    "date": "2009-09-19T13:33:58",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 2460,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8616993882",
+    "date": "2025-07-27T10:19:50",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4406,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "3741013087",
+    "date": "2006-04-13T23:55:33",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 1519,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4795718284",
+    "date": "2010-04-12T11:12:34",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4036,
+    "status": "Система"
+  },
+  {
+    "sale_id": "6068441937",
+    "date": "2025-06-11T10:35:02",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1808,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1565629833",
+    "date": "2010-04-18T16:46:57",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4949,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "8151607933",
+    "date": "2014-12-18T04:47:44",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 3771,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "2142979618",
+    "date": "2009-01-06T08:42:48",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3871,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "1819772234",
+    "date": "2025-04-17T08:10:24",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -2233,
+    "status": "Система"
+  },
+  {
+    "sale_id": "7084385441",
+    "date": "2014-04-08T07:33:02",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 4934,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9350561005",
+    "date": "2025-10-30T11:55:20",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -951,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "3858576229",
+    "date": "2009-08-28T09:06:46",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4258,
+    "status": "Система"
+  },
+  {
+    "sale_id": "8240719604",
+    "date": "2025-11-13T16:24:08",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1350,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4192467518",
+    "date": "2014-04-20T20:30:47",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2565,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3576945436",
+    "date": "2006-04-24T06:50:22",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 3890,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "3811172517",
+    "date": "2014-12-20T02:07:04",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 342,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "8599576034",
+    "date": "2006-11-10T04:28:41",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 3197,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3964787087",
+    "date": "2025-11-25T20:09:10",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3472,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9454747984",
+    "date": "2009-08-28T11:40:49",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4270,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7907078760",
+    "date": "2010-04-22T04:58:24",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1762,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "3657333257",
+    "date": "2009-02-20T16:20:00",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 4703,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "5630980834",
+    "date": "2014-02-16T00:36:36",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 974,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4621653312",
+    "date": "2009-08-30T21:53:58",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 3841,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9526581044",
+    "date": "2010-09-06T17:47:04",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4530,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "7407357312",
+    "date": "2014-07-10T20:01:08",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -4712,
+    "status": "Система"
+  },
+  {
+    "sale_id": "5951551091",
+    "date": "2010-12-25T12:01:04",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 700,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3169875583",
+    "date": "2009-04-21T06:47:25",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4003,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4912716140",
+    "date": "2009-08-03T11:53:14",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -3671,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "8684132373",
+    "date": "2010-12-16T05:23:00",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1533,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "7249443571",
+    "date": "2009-02-24T17:49:46",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3839,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "3861760039",
+    "date": "2009-04-27T16:49:50",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1939,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9779368973",
+    "date": "2006-07-28T08:50:06",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -22,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "7990182580",
+    "date": "2009-07-03T14:21:38",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2964,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "1220328012",
+    "date": "2014-09-03T06:33:55",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 4504,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "4540198752",
+    "date": "2006-08-22T13:21:00",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 462,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "6508265866",
+    "date": "2025-07-22T09:30:07",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -3328,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1968233231",
+    "date": "2025-03-27T22:55:23",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 2914,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "6125151226",
+    "date": "2014-12-14T07:54:21",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 4625,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "6668502762",
+    "date": "2025-12-23T15:00:59",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 4264,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "2997154445",
+    "date": "2014-07-10T07:35:34",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4831,
+    "status": "Система"
+  },
+  {
+    "sale_id": "4995139825",
+    "date": "2025-05-06T15:42:39",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -1679,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9923369490",
+    "date": "2014-05-24T20:02:53",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -2153,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "9063940429",
+    "date": "2009-11-07T21:11:08",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -4664,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "6133042991",
+    "date": "2025-08-11T19:48:30",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 0,
+    "credit": -367,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "1262676047",
+    "date": "2025-05-27T02:38:57",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 77,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1919567327",
+    "date": "2025-09-15T14:32:47",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 813,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "5698288252",
+    "date": "2006-01-22T22:53:47",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 3061,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "1713313995",
+    "date": "2010-12-30T16:16:35",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 1830,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4997954049",
+    "date": "2025-11-14T23:12:25",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 3805,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4831614396",
+    "date": "2025-08-16T19:19:21",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 1037,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "9076519722",
+    "date": "2010-02-18T23:18:13",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 3756,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "3097981486",
+    "date": "2025-04-03T19:13:05",
+    "shop": "МЕЛОМАН АА Grand",
+    "shop_brand": "Meloman",
+    "is_mobile": true,
+    "debit": 1954,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "8781280954",
+    "date": "2009-07-14T16:07:04",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1998,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "7301655735",
+    "date": "2006-09-21T01:44:04",
+    "shop": "www.meloman.kz",
+    "shop_brand": "Meloman",
+    "is_mobile": false,
+    "debit": 2142,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "4126785690",
+    "date": "2014-09-20T13:29:15",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 1359,
+    "credit": 0,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "4050191072",
+    "date": "2014-10-04T18:21:13",
+    "shop": "System",
+    "shop_brand": "System",
+    "is_mobile": true,
+    "debit": 872,
+    "credit": 0,
+    "status": "Предзаказ"
+  },
+  {
+    "sale_id": "4248722607",
+    "date": "2014-11-19T19:10:41",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -794,
+    "status": "Завершен"
+  },
+  {
+    "sale_id": "5425164927",
+    "date": "2025-09-26T06:42:14",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 0,
+    "credit": -1372,
+    "status": "Система"
+  },
+  {
+    "sale_id": "9559195082",
+    "date": "2014-06-14T17:28:06",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": false,
+    "debit": 1490,
+    "credit": 0,
+    "status": "Возврат"
+  },
+  {
+    "sale_id": "3428716262",
+    "date": "2006-08-06T09:58:35",
+    "shop": "www.marwin.kz",
+    "shop_brand": "Marwin",
+    "is_mobile": true,
+    "debit": 1794,
+    "credit": 0,
+    "status": "Система"
+  },
+  {
+    "sale_id": "1291205849",
+    "date": "2009-10-04T10:46:32",
+    "shop": "www.europharma.kz",
+    "shop_brand": "Europharma",
+    "is_mobile": false,
+    "debit": 3514,
+    "credit": 0,
+    "status": "Завершен"
+  }
+]
+
+class PrimeTableController {
+  constructor(container) {
+    this.container = container;
+    this.barMobileSlider = this.container.querySelector('.prime-table__mobile-slider[data-slider-mob-js]');
+    this.barDesktopSlider = this.container.querySelector('#prime-table-desktop');
+    this.popup = this.container.querySelector('#prime-popup-init');
+    this.openButton = this.container.querySelector('[data-open-js]');
+    this.overlay = this.popup.querySelector('.prime-popup__overlay');
+    this.closeButtons = this.popup.querySelectorAll('[data-popup-close-js]');
+    //CashbackVal
+    this.multiplyCashback = 100;
+    this.limitBonusError = 50000;
+
+    //Mobile
+    this.renderHeadlineGeneral(data, data2);
+    this.renderHeaderMobile(data);
+    this.renderHeaderDesktop(data);
+    this.renderSliderProgressBarMobile(data);
+    
+    //Desktop
+    this.renderProgressBarDesktop(data);
+    this.renderBarDetailsDesktop(data);
+    //Bootom
+    this.initTransactionsBlock(data2);
+    this.renderOperationHistoryButton();
+    this.renderPrivelegies();
+
+    //after initialization
+    this.showErrors(data);
+  }
+
+
+  formatNumber(value) {
+    const num = +value || 0;
+    return num.toLocaleString('ru-RU');
+  }
+
+  showErrors({ bonus_cap }) {
+    const headers = this.container.querySelectorAll('.prime-table__levels');
+    const method = bonus_cap >= this.limitBonusError ? 'add' : 'remove';
+
+    headers.forEach(item => {
+      const error = item.querySelectorAll('i');
+
+      error.forEach(icon => {
+        icon.classList[method]('error');
+      });
+    });
+  }
+
+
+
+  // Общий заголовок старницы
+  renderHeadlineGeneral({ title_name, cashback }) {
+    const headline = this.container.querySelector('#prime-table-headline');
+    if(headline) {
+      headline.innerHTML = `
+        <strong class="prime-table__headline-title">Prime</strong>
+        <span class="prime-table__headline-text">${title_name} уроверь</span>
+        <span class="prime-table__headline-cashback">кешбэк ${cashback * this.multiplyCashback}%</span>
+      `;
+    }
+  }
+  // Шапка навбара для мобилы 
+  renderHeaderMobile({ balance, bonus_value, bonus_cap }) {
+    const header = this.barMobileSlider.querySelector('#prime-levels-header-mobile');
+      if(header) {
+        header.innerHTML = `
+          <span class="prime-table__levels-current-bonus">${this.formatNumber(balance)}</span>
+          <i class="prime-table__levels-max-bonus">${this.formatNumber(bonus_value)}</i>
+          <i class="prime-table__levels-accumulation">/ ${this.formatNumber(bonus_cap)}</i>
+        `
+      }
+  }
+  // Шапка навбара для ПК 
+  renderHeaderDesktop({ balance, bonus_value, bonus_cap }) {
+    const header = this.barDesktopSlider.querySelector('#prime-levels-header-desktop');
+      if(header) {
+        header.innerHTML = ''
+        header.innerHTML = `
+          <span class="prime-table__levels-current-bonus">${this.formatNumber(balance)}</span>
+          <i class="prime-table__levels-max-bonus">${this.formatNumber(bonus_value)}</i>
+          <i class="prime-table__levels-accumulation">/ ${this.formatNumber(bonus_cap)}</i>
+        `
+      }
+  }
+  // Рендер сладера прогресбара для мобильных
+  renderSliderProgressBarMobile(data) {
+  const slider = this.barMobileSlider.querySelector('#slide-mobile-render');
+  if (!slider) return;
+
+  const titles = data.loyalty_titles;
+  const currentAmount = data.check_sum || 0;
+
+  slider.innerHTML = '';
+
+  // Формируем слайды по 2 уровня на слайд
+  for (let i = 0; i < titles.length - 1; i++) {
+    const left = titles[i];
+    const right = titles[i + 1];
+
+    // Прогресс-спот
+    const progressSpotHTML = `
+      <div class="prime-table__levels-progress-spot" data-progress-bar="${i}">
+        <div class="prime-table__levels-step">
+          <span class="prime-table__levels-step-percent">${left.cashback * this.multiplyCashback}%</span>
+        </div>
+
+        <div class="prime-table__levels-progress-wrp">
+          <div class="prime-table__levels-progress" 
+               data-current-val="${currentAmount}" 
+               data-limit-value="${right.threshold}">
+          </div>
+        </div>
+
+        <div class="prime-table__levels-step">
+          <span class="prime-table__levels-step-percent">${right.cashback * this.multiplyCashback}%</span>
+        </div>
+
+        <div class="prime-table__levels-progress-spot-before"></div>
+        <div class="prime-table__levels-progress-spot-after"></div>
+      </div>
+    `;
+
+    // Детали уровней
+    const detailsHTML = [left, right].map((item, index) => {
+      const isLastSlide = i === titles.length - 2 && index === 1;
+      return `
+        <div class="prime-table__levels-item">
+          <div class="prime-table__levels-item-amount">
+            ${!isLastSlide ? `
+            <span class="prime-table__levels-item-value-main">
+              ${this.formatNumber(currentAmount)}
+              <i class="prime-table__levels-item-value-main-money">&#8376;</i>
+            </span>
+            <span class="prime-table__levels-item-value-delimetr">/</span>
+            ` : ''}
+            <span class="prime-table__levels-item-value-sub">
+              ${this.formatNumber(item.threshold)} ₸
+            </span>
+          </div>
+          <div class="prime-table__levels-item-meta">
+            <span class="prime-table__levels-item-icon prime-table__levels-item-icon--${item.name.toLowerCase()}"></span>
+            <span class="prime-table__levels-item-name">${item.name_ru}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Собираем слайд
+    slider.innerHTML += `
+      <div class="prime-table__levels-mobile" data-slide-mob="${i}">
+        <div class="prime-table__levels-progress-bar">
+          ${progressSpotHTML}
+        </div>
+        <div class="prime-table__levels-details">
+          ${detailsHTML}
+        </div>
+      </div>
+    `;
+  }
+}
+
+  renderProgressBarDesktop(data) {
+    const progressBar = this.barDesktopSlider.querySelector('#prime-levels-progress');
+    if (!progressBar) return;
+
+    const steps = [];
+    const titles = data.loyalty_titles;
+
+    const percents = titles.map(t => t.cashback * this.multiplyCashback);
+
+    steps.push({
+      left: `${percents[0]}%`,
+      right: `${percents[1]}%`,
+    });
+
+    for (let i = 2; i < percents.length; i++) {
+      steps.push({ right: `${percents[i]}%` });
+    }
+
+    progressBar.innerHTML = '';
+
+    const levels = data.loyalty_titles.filter(t => t.threshold > 0);
+    let remaining = data.check_sum;
+    let previousThreshold = 0;
+
+    let html = `<div class="prime-table__levels-progress-bar">`;
+
+    levels.forEach((level, i) => {
+      const limit = level.threshold - previousThreshold;
+      previousThreshold = level.threshold;
+
+      const current = Math.min(remaining, limit);
+      remaining -= current;
+
+    const step = steps[i] || {};
+
+      html += `
+        <div class="prime-table__levels-progress-spot" data-progress-bar="${i+1}">
+          ${step.left ? `
+            <div class="prime-table__levels-step">
+              <span class="prime-table__levels-step-percent">${step.left}</span>
+            </div>
+          ` : ''}
+
+          <div class="prime-table__levels-progress-wrp">
+            <div class="prime-table__levels-progress"
+                data-current-val="${current}"
+                data-limit-value="${limit}"
+                style="width:${(current / limit) * 100}%;"
+            ></div>
+          </div>
+          <div class="prime-table__levels-step">
+            <span class="prime-table__levels-step-percent">${step.right || ''}</span>
+          </div>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+    progressBar.innerHTML = html;
+  }
+
+  renderBarDetailsDesktop(data) {
+    const barDetails = this.barDesktopSlider.querySelector('#prime-levels-details');
+    if (!barDetails) return;
+    
+    const titles = Array.isArray(data.loyalty_titles) ? data.loyalty_titles : [];
+    const currentAmount = data.check_sum || 0;
+
+    barDetails.innerHTML = '';
+
+    titles.forEach((item, index) => {
+      const isLast = index === titles.length - 1;
+
+      // берем порог следующего уровня, если он есть; для последнего — свой порог
+      const nextThreshold = (index < titles.length - 1)
+        ? (titles[index + 1].threshold || 0)
+        : (item.threshold || 0);
+
+      const currentVal = this.formatNumber(currentAmount);
+      const nextVal = this.formatNumber(nextThreshold);
+
+      // имя для класса и вывода (нижний регистр)
+      const nameLowerRu = String(item.name_ru || '').toLowerCase();
+      const nameLower = String(item.name || '').toLowerCase();
+
+      barDetails.innerHTML += `
+        <div class="prime-table__levels-item" data-level-index="${index}">
+          <div class="prime-table__levels-item-amount">
+            ${
+              isLast
+                ? '' // для последнего блока не рисуем left value и '/'
+                : `
+                  <span class="prime-table__levels-item-value-main">
+                    ${currentVal}
+                    <i class="prime-table__levels-item-value-main-money">&#8376;</i>
+                  </span>
+                  <span class="prime-table__levels-item-value-delimetr">/</span>
+                `
+            }
+            <span class="prime-table__levels-item-value-sub">${nextVal} ₸</span>
+          </div>
+
+          <div class="prime-table__levels-item-meta">
+            <span class="prime-table__levels-item-icon prime-table__levels-item-icon--${nameLower}"></span>
+            <span class="prime-table__levels-item-name">${nameLowerRu}</span>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  renderOperationHistoryButton() {
+    const backHistoryButton = this.container.querySelector('#prime-table-button-history');
+    if(!backHistoryButton) return;
+
+    backHistoryButton.innerHTML = '<a href="#"><span>История операций</span></a>';
+  }
+
+  renderPrivelegies() {
+    const privelegiesBlock = this.container.querySelector('#prime-table-privileges');
+    if(!privelegiesBlock) return;
+
+    privelegiesBlock.innerHTML = `
+      <ul class="prime-table__privileges-levels">
+        <li class="prime-table__privileges-level">
+          <div class="prime-table__privileges-header">
+            <span class="prime-table__privileges-name prime-table__privileges-name--bronze">Бронзовый уровень</span>
+            <span class="prime-table__privileges-current">ваш уровень</span>
+          </div>
+          <div class="prime-table__privileges-footer">
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-limit">лимит накопление 50 000</span>
+          </div>
+        </li>
+        <li class="prime-table__privileges-level">
+          <div class="prime-table__privileges-header">
+            <span class="prime-table__privileges-name prime-table__privileges-name--silver">Серебряный уровень</span>
+            <span class="prime-table__privileges-current">ваш уровень</span>
+          </div>
+          <div class="prime-table__privileges-footer">
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-limit">лимит накопление 50 000</span>
+          </div>
+        </li>
+        <li class="prime-table__privileges-level">
+          <div class="prime-table__privileges-header">
+            <span class="prime-table__privileges-name prime-table__privileges-name--gold">Золотой уровень</span>
+            <span class="prime-table__privileges-current">ваш уровень</span>
+          </div>
+          <div class="prime-table__privileges-footer">
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-limit">лимит накопление 50 000</span>
+          </div>
+        </li>
+        <li class="prime-table__privileges-level">
+          <div class="prime-table__privileges-header">
+            <span class="prime-table__privileges-name prime-table__privileges-name--platinum">Платиновый уровень</span>
+            <span class="prime-table__privileges-current">ваш уровень</span>
+          </div>
+          <div class="prime-table__privileges-footer">
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-item">кешбэк 10%</span>
+            <span class="prime-table__privileges-limit">лимит накопление 50 000</span>
+          </div>
+        </li>
+      </ul>
+    `;
+  }
+
+  initTransactionsBlock(data2) {
+    if (!Array.isArray(data2) || !data2.length) return;
+
+    const FILTER_ALL = 'Все';
+
+    this.transactionData = data2;
+    this.currentYear = new Date().getFullYear();
+    this.currentFilter = FILTER_ALL;
+    this.paginationIndex = 6;
+    this._transactionEventsInitialized = false;
+
+    const block = this.container.querySelector('#prime-table-transaction');
+    if (!block) return;
+
+    const months = {
+      0: 'Январь', 1: 'Февраль', 2: 'Март', 3: 'Апрель',
+      4: 'Май', 5: 'Июнь', 6: 'Июль', 7: 'Август',
+      8: 'Сентябрь', 9: 'Октябрь', 10: 'Ноябрь', 11: 'Декабрь'
+    };
+
+    const render = () => {
+
+      // -----------------------------
+      // Фильтрация
+      // -----------------------------
+      let filteredData = this.transactionData.filter(item => {
+        const year = new Date(item.date).getFullYear();
+        if (year !== this.currentYear) return false;
+        if (this.currentFilter !== FILTER_ALL && item.shop_brand !== this.currentFilter) return false;
+        return true;
+      });
+
+      // сортируем от новых к старым
+      filteredData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      const visibleData = filteredData.slice(0, this.paginationIndex);
+
+      // -----------------------------
+      // Рендер списка
+      // -----------------------------
+      let html = `<ul class="prime-table__list">`;
+
+      if (!visibleData.length) {
+        html += `<li class="prime-table__list-empty">Нет записей</li>`;
+      } else {
+        let lastMonthKey = null;
+
+        visibleData.forEach(item => {
+          const d = new Date(item.date);
+          const monthKey = `${d.getFullYear()}-${d.getMonth()}`;
+          const monthName = months[d.getMonth()];
+          const year = d.getFullYear();
+
+          if (lastMonthKey !== monthKey) {
+            html += `<li class="prime-table__list-title">
+              <span>${monthName} ${year}</span>
+            </li>`;
+            lastMonthKey = monthKey;
+          }
+
+          const dateFormatted =
+            d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) +
+            ` ${d.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })}`;
+
+          const principal = item.debit
+            ? `+${this.formatNumber(item.debit)}`
+            : (item.debit === 0 ? '0' : this.formatNumber(item.debit));
+
+          const bonus = (item.credit || item.credit === 0)
+            ? this.formatNumber(item.credit)
+            : '';
+            console.log(item);
+          html += `
+            <li class="prime-table__list-line">
+              <div class="prime-table__list-wrapper">
+                <div class="prime-table__list-icon prime-table__list-icon--${item.shop_brand.toLowerCase()}"></div>
+                <div class="prime-table__list-info">
+                  <span class="prime-table__list-date">${dateFormatted}</span>
+                  <span class="prime-table__list-name">${item.shop}</span>
+                  <div class="prime-table__list-sums">
+                    <span class="prime-table__list-sum-principal">${principal}</span>
+                    <span class="prime-table__list-sum-bonus">${bonus}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="prime-table__list-status">${item.status}</div>
+            </li>
+          `;
+        });
+      }
+
+      // кнопка "Показать ещё"
+      if (this.paginationIndex < filteredData.length) {
+        html += `<li class="prime-table__list-button"><button type="button" data-load-more>Показать еще</button></li>`;
+      }
+
+      html += `</ul>`;
+
+      // -----------------------------
+      // Рендер фильтров
+      // -----------------------------
+      const years = [...new Set(this.transactionData.map(i => new Date(i.date).getFullYear()))]
+        .sort((a, b) => b - a);
+
+      const filters = [
+        FILTER_ALL,
+        ...new Set(this.transactionData.map(i => i.shop_brand))
+      ].filter(f => f !== 'System');
+
+      const headerHTML = `
+        <div class="prime-table__transaction-header">
+          <strong class="prime-table__transaction-title">История операции</strong>
+
+          <div class="prime-table__transaction-select" data-select>
+            <div class="prime-table__transaction-select-current" data-select-current>
+              <span class="prime-table__transaction-select-value">${this.currentYear}</span>
+            </div>
+
+            <div class="prime-table__transaction-select-dropdown" data-select-dropdown>
+              <div class="prime-table__transaction-select-scroll">
+                ${years.map(y => `<span class="prime-table__transaction-select-option" data-value="${y}">${y}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const filtersHTML = `
+        <div class="prime-table__filters" data-filters>
+          ${filters.map(f => {
+            const cls = f !== FILTER_ALL
+              ? ` prime-table__filters-value--${String(f).toLowerCase().replace(/\s+/g, '-')}`
+              : '';
+
+            const active = this.currentFilter === f ? ' active' : '';
+
+            return `
+              <button type="button"
+                class="prime-table__filters-value${cls}${active}"
+                data-filter="${f}">
+                ${f}
+              </button>
+            `;
+          }).join('')}
+        </div>
+      `;
+
+      block.innerHTML = headerHTML + filtersHTML + html;
+
+      bindEvents();
+    };
+
+    // -----------------------------
+    // События
+    // -----------------------------
+    const bindEvents = () => {
+      const selectRoot = block.querySelector('[data-select]');
+      const selectCurrent = block.querySelector('[data-select-current]');
+      const dropdown = block.querySelector('[data-select-dropdown]');
+
+      // селект
+      selectCurrent.onclick = (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('prime-table__transaction-select-dropdown--open');
+      };
+
+      block.querySelectorAll('.prime-table__transaction-select-option').forEach(opt => {
+        opt.onclick = () => {
+          this.currentYear = +opt.dataset.value;
+          this.paginationIndex = 6;
+          dropdown.classList.remove('prime-table__transaction-select-dropdown--open');
+          render();
+        };
+      });
+
+      // фильтры
+      block.querySelectorAll('[data-filter]').forEach(btn => {
+        btn.onclick = () => {
+          this.currentFilter = btn.dataset.filter || FILTER_ALL;
+          this.paginationIndex = 6;
+          render();
+        };
+      });
+
+      // лоадмор
+      const loadMoreBtn = block.querySelector('[data-load-more]');
+      if (loadMoreBtn) {
+        loadMoreBtn.onclick = () => {
+          this.paginationIndex += 24;
+          render();
+        };
+      }
+
+      // закрытие селекта
+      document.addEventListener('click', (e) => {
+        if (!selectRoot.contains(e.target)) {
+          dropdown.classList.remove('prime-table__transaction-select-dropdown--open');
+        }
+      });
+    };
+
+    render();
+  }
+
+
+
+
+
+  initStepsCurrentLevels() {
+    const steps = this.container.querySelectorAll('.prime-table__levels-step');
+    const items = this.container.querySelectorAll('.prime-table__levels-item');
+
+    const count = Math.min(steps.length, items.length);
+
+    steps.forEach((step, i) => {
+      if (i < count) {
+        step.dataset.currentLevel = i;
+        items[i].dataset.currentLevel = i;
+      }
+    });
+  }
+
+  initPopupEvents() {
+    const openPopup = () => {
+      this.popup.classList.add('prime-popup--visible', 'prime-popup--active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closePopup = () => {
+      this.popup.classList.remove('prime-popup--active', 'prime-popup--visible');
+      document.body.style.overflow = '';
+    };
+
+    this.openButton.addEventListener('click', openPopup);
+    this.overlay.addEventListener('click', closePopup);
+    this.closeButtons.forEach(btn => btn.addEventListener('click', closePopup));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closePopup();
+    });
+  }
+
+  /** ------------------------
+   *** MOBILE SLIDER
+   ---------------------------*/
+  initMobileSlider() {
+
+    const wrapper = this.container.querySelector(".prime-table__mobile-slider[data-slider-mob-js]");
+    if (!wrapper) return;
+
+    const slides = wrapper.querySelectorAll(".prime-table__levels-mobile[data-slide-mob]");
+    if (!slides.length) return;
+
+    let currentSlide = 0;
+    let mobileSliderInitialized = false;
+
+    let startX = 0;
+    let startY = 0;
+    let isHorizontalSwipe = false;
+
+
+    const assignSlideAndProgressIndexes = () => {
+      this.container.querySelectorAll('[data-slide-mob], [data-progress-bar]').forEach((el, index) => {
+        if (el.hasAttribute('data-slide-mob')) el.dataset.slideMob = index;
+        if (el.hasAttribute('data-progress-bar')) el.dataset.progressBar = index;
+      });
+    };
+
+
+    const updateProgressSpots = () => {
+      const allSpotsBefore = wrapper.querySelectorAll('.prime-table__levels-progress-spot-before');
+      const allSpotsAfter = wrapper.querySelectorAll('.prime-table__levels-progress-spot-after');
+
+      allSpotsBefore.forEach(spot => spot.classList.remove('prime-table__levels-progress-spot-before--active'));
+      allSpotsAfter.forEach(spot => spot.classList.remove('prime-table__levels-progress-spot-after--active'));
+
+      if (currentSlide === slides.length - 1) {
+        allSpotsBefore.forEach(spot => spot.classList.add('prime-table__levels-progress-spot-before--active'));
+      }
+
+      if (currentSlide === 0) {
+        allSpotsAfter.forEach(spot => spot.classList.add('prime-table__levels-progress-spot-after--active'));
+      }
+    };
+
+
+    const touchStartHandler = (e) => {
+      const t = e.touches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      isHorizontalSwipe = false;
+    };
+
+    const touchMoveHandler = (e) => {
+      const t = e.touches[0];
+      const diffX = Math.abs(t.clientX - startX);
+      const diffY = Math.abs(t.clientY - startY);
+
+      if (!isHorizontalSwipe && diffX > diffY && diffX > 10) {
+        isHorizontalSwipe = true;
+      }
+
+      if (isHorizontalSwipe) {
+        e.preventDefault();
+      }
+    };
+
+    const touchEndHandler = (e) => {
+      if (!isHorizontalSwipe) return;
+
+      const endX = e.changedTouches[0].clientX;
+
+      if (endX - startX > 50 && currentSlide > 0) {
+        showSlide(currentSlide - 1, 'right');
+      } else if (startX - endX > 50 && currentSlide < slides.length - 1) {
+        showSlide(currentSlide + 1, 'left');
+      }
+    };
+
+
+    const showSlide = (index, direction = 'left') => {
+      if (index === currentSlide) return;
+
+      const oldSlide = slides[currentSlide];
+      const newSlide = slides[index];
+
+      oldSlide.classList.remove('prime-table__levels-mobile--active');
+      newSlide.classList.add('prime-table__levels-mobile--active');
+
+      const animClass = direction === 'left'
+        ? 'prime-table__levels-mobile--anim-in-left'
+        : 'prime-table__levels-mobile--anim-in-right';
+
+      newSlide.classList.add(animClass);
+      newSlide.addEventListener('animationend', () => {
+        newSlide.classList.remove(animClass);
+      }, { once: true });
+
+      currentSlide = index;
+      updateProgressSpots();
+    };
+
+
+    const initSlider = () => {
+      slides.forEach(s => s.classList.remove('prime-table__levels-mobile--active'));
+      slides[currentSlide].classList.add('prime-table__levels-mobile--active');
+
+      wrapper.addEventListener('touchstart', touchStartHandler, { passive: true });
+      wrapper.addEventListener('touchmove', touchMoveHandler, { passive: false });
+      wrapper.addEventListener('touchend', touchEndHandler);
+
+      mobileSliderInitialized = true;
+      updateProgressSpots();
+    };
+
+    const destroySlider = () => {
+      if (!mobileSliderInitialized) return;
+
+      slides.forEach(s => s.classList.remove('prime-table__levels-mobile--active'));
+
+      wrapper.removeEventListener('touchstart', touchStartHandler);
+      wrapper.removeEventListener('touchmove', touchMoveHandler);
+      wrapper.removeEventListener('touchend', touchEndHandler);
+
+      mobileSliderInitialized = false;
+    };
+
+    const checkSlider = () => {
+      if (window.innerWidth <= 479) {
+        if (!mobileSliderInitialized) initSlider();
+      } else {
+        destroySlider();
+      }
+    };
+
+    assignSlideAndProgressIndexes();
+    window.addEventListener('load', checkSlider);
+    window.addEventListener('resize', checkSlider);
+    checkSlider();
+  }
+
+  initProgressBarsLogic() {
+
+    const bars = Array.from(
+      this.container.querySelectorAll('.prime-table__levels-progress')
+    );
+
+    const items = Array.from(
+      this.container.querySelectorAll('.prime-table__levels-item')
+    );
+
+    bars.forEach((bar, barIndex) => {
+      // console.log(bar);
+      // --- вычисляем %  
+      const currentRaw = Number(String(bar.dataset.currentVal   || '0').replace(/\s/g, '')) || 0;
+      const limit      = Number(String(bar.dataset.limitValue || '0').replace(/\s/g, '')) || 0;
+      const percent    = limit > 0 ? Math.min((currentRaw / limit) * 100, 100) : 0;
+
+      bar.style.width = percent + '%';
+
+
+      // --- spot and steps
+      const spot      = bar.closest('.prime-table__levels-progress-spot');
+      if (!spot) return;
+
+      const spotSteps = Array.from(
+        spot.querySelectorAll('.prime-table__levels-step')
+      );
+
+
+      // --- First spot step
+      if (barIndex === 0 && spotSteps[0]) {
+        spotSteps[0].classList.add('prime-table__levels-step--active');
+
+        const firstItem = items.find(it => Number(it.dataset.currentLevel) === 0);
+        if (firstItem) {
+          firstItem.classList.add('prime-table__levels-item--active');
+        }
+      }
+
+
+      // --- If bar complete
+      if (percent === 100) {
+
+        bar.classList.add('prime-table__levels-progress--active');
+
+        spotSteps.forEach(s => {
+          s.classList.add('prime-table__levels-step--active');
+        });
+
+        const maxLevel = Math.max(...spotSteps.map(s => Number(s.dataset.currentLevel)));
+          
+        items.forEach(item => {
+          const level = Number(item.dataset.currentLevel);
+          if (level <= maxLevel) {
+            item.classList.add('prime-table__levels-item--active');
+          }
+        });
+      }
+
+
+      // --- Active collection
+      const activeItems = items.filter(
+        it => it.classList.contains('prime-table__levels-item--active')
+      );
+
+      const lastActive  = activeItems[activeItems.length - 1];
+
+
+      // --- First item styles
+      const firstItem = items.find(
+        it => Number(it.dataset.currentLevel) === 0
+      );
+
+      if (firstItem) {
+        const firstSub = firstItem.querySelector('.prime-table__levels-item-value-sub');
+        if (firstSub) {
+          firstSub.style.color = '#2F80ED';
+          firstSub.style.fontSize = '12px';
+        }
+      }
+
+
+      // --- First active item
+      if (activeItems.length >= 2) {
+        const firstActive = activeItems[0];
+        if (firstActive) {
+          const main = firstActive.querySelector('.prime-table__levels-item-value-main');
+          const delim = firstActive.querySelector('.prime-table__levels-item-value-delimetr');
+          const sub = firstActive.querySelector('.prime-table__levels-item-value-sub');
+
+          if (main) main.style.display = 'none';
+          if (delim) delim.style.display = 'none';
+          if (sub)  sub.style.fontSize = '16px';
+        }
+      }
+
+
+      // --- Previous active items (not last)
+      if (activeItems.length >= 2) {
+        activeItems.slice(0, -1).forEach(item => {
+          if (Number(item.dataset.currentLevel) === 0) return;
+
+          const main  = item.querySelector('.prime-table__levels-item-value-main');
+          const delim = item.querySelector('.prime-table__levels-item-value-delimetr');
+          const sub   = item.querySelector('.prime-table__levels-item-value-sub');
+
+          if (sub) {
+            if (main)  main.style.display = 'none';
+            if (delim) delim.style.display = 'none';
+            sub.style.fontSize = '16px';
+            sub.style.color    = '#2F80ED';
+          }
+        });
+      }
+
+
+      // --- Last active item
+      if (lastActive) {
+
+        const main  = lastActive.querySelector('.prime-table__levels-item-value-main');
+        const delim = lastActive.querySelector('.prime-table__levels-item-value-delimetr');
+        const sub   = lastActive.querySelector('.prime-table__levels-item-value-sub');
+
+        if (main) {
+          main.style.display    = 'inline-block';
+          main.style.fontSize   = '20px';
+          main.style.fontWeight = '700';
+        }
+
+        if (!main && sub) {
+          sub.style.display    = 'inline-block';
+          sub.style.fontSize   = '20px';
+          sub.style.fontWeight = '700';
+          sub.style.color      = '#2F80ED';
+        } 
+        else if (sub) {
+          sub.style.fontSize = '12px';
+          sub.style.color    = Number(lastActive.dataset.currentLevel) === 0
+            ? '#2F80ED'
+            : '#000';
+        }
+
+        if (delim) delim.style.display = 'inline-block';
+      }
+
+
+      // --- Non-active items
+      items
+        .filter(it => !it.classList.contains('prime-table__levels-item--active'))
+        .forEach(item => {
+          const main  = item.querySelector('.prime-table__levels-item-value-main');
+          const delim = item.querySelector('.prime-table__levels-item-value-delimetr');
+          const sub   = item.querySelector('.prime-table__levels-item-value-sub');
+
+          if (main)  main.style.display = 'none';
+          if (delim) delim.style.display = 'none';
+
+          if (sub) {
+            sub.style.fontSize = '';
+            if (Number(item.dataset.currentLevel) !== 0) {
+              sub.style.color = '';
+            }
+          }
+        });
+
+
+      // --- Name color
+      activeItems.forEach(item => {
+        const name = item.querySelector('.prime-table__levels-item-name');
+        if (name) name.style.color = '#000';
+      });
+    });
+  }
+
+
+}
+
+// --- INIT ---
+const controller = new PrimeTableController(document.getElementById('table-root'));
+controller.initStepsCurrentLevels();
+controller.initPopupEvents();
+controller.initMobileSlider();
+controller.initProgressBarsLogic();
+
+
+
+// --------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// (() => {
+//    const root = document.getElementById('prime-table__init');
+//   if (!root) return;
+
+//   const bars  = Array.from(root.querySelectorAll('.prime-table__levels-progress[data-current-val]'));
+//   const items = Array.from(root.querySelectorAll('.prime-table__levels-item'));
+
+//   bars.forEach((bar, barIndex) => {
+//     const currentRaw = Number(String(bar.dataset.currentVal || '0').replace(/\s/g, '')) || 0;
+//     const limit = Number(String(bar.dataset.limitValue || '0').replace(/\s/g, '')) || 0;
+//     const percent = limit > 0 ? Math.min((currentRaw / limit) * 100, 100) : 0;
+
+//     bar.style.width = percent + '%';
+
+//     const spot = bar.closest('.prime-table__levels-progress-spot');
+//     if (!spot) return;
+//     const spotSteps = Array.from(spot.querySelectorAll('.prime-table__levels-step'));
+
+//     // Первый step первого spot
+//     if (barIndex === 0 && spotSteps[0]) {
+//       spotSteps[0].classList.add('prime-table__levels-step--active');
+//       const firstItem = items.find(it => Number(it.dataset.currentLevel) === 0);
+//       if (firstItem) firstItem.classList.add('prime-table__levels-item--active');
+//     }
+
+//     // Бар полностью заполнен
+//     if (percent === 100) {
+//       bar.classList.add('prime-table__levels-progress--active');
+//       spotSteps.forEach(s => s.classList.add('prime-table__levels-step--active'));
+
+//       const maxLevel = Math.max(...spotSteps.map(s => Number(s.dataset.currentLevel)));
+//       items.forEach(item => {
+//         const level = Number(item.dataset.currentLevel);
+//         if (level <= maxLevel) {
+//           item.classList.add('prime-table__levels-item--active');
+//         }
+//       });
+//     }
+
+//     // ---- Логика отображения блоков и стилей ----
+//     const activeItems = items.filter(it => it.classList.contains('prime-table__levels-item--active'));
+//     const lastActive = activeItems[activeItems.length - 1];
+
+//     // Первый элемент всегда с цветом #2F80ED
+//     const firstItem = items.find(it => Number(it.dataset.currentLevel) === 0);
+//     if (firstItem) {
+//       const firstSub = firstItem.querySelector('.prime-table__levels-item-value-sub');
+//       if (firstSub) {
+//         firstSub.style.color = '#2F80ED';
+//         firstSub.style.fontSize = '12px';
+//       }
+//     }
+
+//     // Если активных ≥ 2, у самого первого активного элемента
+//     if (activeItems.length >= 2) {
+//       const firstActive = activeItems[0];
+//       if (firstActive) {
+//         const main = firstActive.querySelector('.prime-table__levels-item-value-main');
+//         const delim = firstActive.querySelector('.prime-table__levels-item-value-delimetr');
+//         const sub = firstActive.querySelector('.prime-table__levels-item-value-sub');
+
+//         if (main) main.style.display = 'none';
+//         if (delim) delim.style.display = 'none';
+//         if (sub) sub.style.fontSize = '16px';
+//       }
+//     }
+
+//     // Предыдущие активные элементы (кроме последнего)
+//     if (activeItems.length >= 2) {
+//       activeItems.slice(0, -1).forEach(item => {
+//         if (Number(item.dataset.currentLevel) === 0) return; // первый элемент уже обработан
+        
+//         const main = item.querySelector('.prime-table__levels-item-value-main');
+//         const delim = item.querySelector('.prime-table__levels-item-value-delimetr');
+//         const sub = item.querySelector('.prime-table__levels-item-value-sub');
+
+//         if (sub) {
+//           if (main) main.style.display = 'none';
+//           if (delim) delim.style.display = 'none';
+//           sub.style.fontSize = '16px';
+//           sub.style.color = '#2F80ED';
+//         }
+//       });
+//     }
+
+//     // Последний активный элемент
+//     if (lastActive) {
+//       const main = lastActive.querySelector('.prime-table__levels-item-value-main');
+//       const delim = lastActive.querySelector('.prime-table__levels-item-value-delimetr');
+//       const sub = lastActive.querySelector('.prime-table__levels-item-value-sub');
+
+//       if (main) {
+//         main.style.display = 'inline-block';
+//         main.style.fontSize = '20px';
+//         main.style.fontWeight = '700';
+//       }
+
+//       // Если нет value-main, но есть value-sub — применяем стили к sub
+//       if (!main && sub) {
+//         sub.style.display = 'inline-block';
+//         sub.style.fontSize = '20px';
+//         sub.style.fontWeight = '700';
+//         sub.style.color = '#2F80ED';
+//       } else if (sub) {
+//         sub.style.fontSize = '12px';
+//         sub.style.color = Number(lastActive.dataset.currentLevel) === 0 ? '#2F80ED' : '#000';
+//       }
+
+//       if (delim) delim.style.display = 'inline-block';
+//     }
+
+//     // Неактивные элементы
+//     items.filter(it => !it.classList.contains('prime-table__levels-item--active')).forEach(item => {
+//       const main = item.querySelector('.prime-table__levels-item-value-main');
+//       const delim = item.querySelector('.prime-table__levels-item-value-delimetr');
+//       const sub = item.querySelector('.prime-table__levels-item-value-sub');
+
+//       if (main) main.style.display = 'none';
+//       if (delim) delim.style.display = 'none';
+//       if (sub) {
+//         sub.style.fontSize = '';
+//         if (Number(item.dataset.currentLevel) !== 0) sub.style.color = '';
+//       }
+//     });
+
+//     // ---- Устанавливаем цвет name для всех активных элементов ----
+//     activeItems.forEach(item => {
+//       const name = item.querySelector('.prime-table__levels-item-name');
+//       if (name) name.style.color = '#000';
+//     });
+//   });
+// })();
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+{
+  "title_id": 0,
+  "title_name": "Бронзовый",
+  "balance": 3000,
+  "cashback": 0.1,
+  "bonus_value": 10000,
+  "bonus_cap": 50000,
+  "check_sum": 150000,
+  "loyalty_titles": [
+    { "id": 0, "name": "Bronze", "name_ru": "Бронзовый", "cashback": 0.1, "threshold": 0 },
+    { "id": 51, "name": "Silver", "name_ru": "Серебряный", "cashback": 0.13, "threshold": 300000 },
+    { "id": 52, "name": "Gold", "name_ru": "Золотой", "cashback": 0.16, "threshold": 1000000 },
+    { "id": 53, "name": "Platinum", "name_ru": "Платиновый", "cashback": 0.2, "threshold": 3000000 }
+  ]
+}
